@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 data = pd.read_csv('./data.csv', encoding='gbk')
 
@@ -37,4 +38,16 @@ data = data.fillna(data.mean())
 
 # 保存到csv文件
 data.to_csv("new_data.csv",sep=',')
-print(data)
+# print(data)
+
+# 划分训练集和测试集
+x = data.drop('status', axis=1)
+y = data['status']
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=2018)
+
+# 保存
+x_train.to_csv("x_train.csv", sep=',')
+x_test.to_csv("x_test.csv", sep=',')
+y_train.to_csv("y_train.csv", header=True, sep=',')
+y_test.to_csv("y_test.csv", header=True, sep=',')
