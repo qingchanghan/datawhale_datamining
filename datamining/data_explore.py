@@ -47,7 +47,7 @@ y = data['status']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=2018)
 
 # 保存
-x_train.to_csv("x_train.csv", sep=',')
-x_test.to_csv("x_test.csv", sep=',')
-y_train.to_csv("y_train.csv", header=True, sep=',')
-y_test.to_csv("y_test.csv", header=True, sep=',')
+x_train.to_csv("x_train.csv", index=False, sep=',')
+x_test.to_csv("x_test.csv", index=False, sep=',')
+y_train.to_csv("y_train.csv", index=False, header=True, sep=',')
+y_test.to_csv("y_test.csv", index=False, header=True, sep=',')
